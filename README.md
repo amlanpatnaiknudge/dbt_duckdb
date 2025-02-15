@@ -1,21 +1,24 @@
 1. get jaffle_shop project
-// clone jaffle_shop project
-git clone https://github.com/dbt-labs/jaffle_shop.git
+- clone jaffle_shop project
+- git clone https://github.com/dbt-labs/jaffle_shop.git
 
-// go into the project folder
-cd jaffle_shop
-2. Create a virtual environment and install the DuckDB adapter:
-// create python virtual environment
-pip install virtualenv
-python -m venv env
-source env/bin/activate
+2. go into the project folder
+- cd jaffle_shop
 
-// install duck-db adapter to dbt
-pip install dbt-duckdb
-3. Install duck-db
-pip install -U duckdb
-4. Config local target
-Open the DBT project directory and add profiles.yml file, or add a local target to an existing profile file:
+3. Create a virtual environment and install the DuckDB adapter:
+- create python virtual environment
+- pip install virtualenv
+- python -m venv env
+- source env/bin/activate
+
+4. install duck-db adapter to dbt
+- pip install dbt-duckdb
+
+5. Install duck-db
+- pip install -U duckdb
+
+6. Config local target
+- Open the DBT project directory and add profiles.yml file, or add a local target to an existing profile file:
 
 jaffle_shop:
   target: local
@@ -24,7 +27,7 @@ jaffle_shop:
       type: duckdb
       path: 'jaffle_shop.duckdb'
 
-5. Build
+6. Build
 dbt build
 dbt run
 
@@ -103,8 +106,10 @@ For more information on dbt:
 - Join the [dbt community](http://community.getdbt.com/).
 ---
 
-/Users/amlanpatnaik/.duckdb/cli/latest/duckdb
-.open jaffle_shop.duckdb
-show databases;
-select * from orders from wherr amount > 20
-.exit
+### Duckdb
+
+- /Users/amlanpatnaik/.duckdb/cli/latest/duckdb
+- .open jaffle_shop.duckdb
+- show databases;
+- select * from orders from wherr amount > 20
+- .exit
