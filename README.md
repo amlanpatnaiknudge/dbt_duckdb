@@ -1,9 +1,32 @@
-> [!IMPORTANT]
-> This repo is no longer actively maintained. It’s been preserved for continuity and free access. The Jaffle Shop has lived a rich life as dbt’s demo project, but has been superseded by two newer repositories: [`jaffle-shop`](https://github.com/dbt-labs/jaffle-shop), the premier demo project for dbt Cloud, and [`jaffle_shop_duckdb`](https://github.com/dbt-labs/jaffle_shop_duckdb) which supports working locally via DuckDB for those without access to a cloud warehouse. You’re welcome to continue using this repo as an open source resource, just know it will not be actively maintained moving forward.
+1. get jaffle_shop project
+// clone jaffle_shop project
+git clone https://github.com/dbt-labs/jaffle_shop.git
 
-## Testing dbt project: `jaffle_shop`
+// go into the project folder
+cd jaffle_shop
+2. Create a virtual environment and install the DuckDB adapter:
+// create python virtual environment
+pip install virtualenv
+python -m venv env
+source env/bin/activate
 
-`jaffle_shop` is a fictional ecommerce store. This dbt project transforms raw data from an app database into a customers and orders model ready for analytics.
+// install duck-db adapter to dbt
+pip install dbt-duckdb
+3. Install duck-db
+pip install -U duckdb
+4. Config local target
+Open the DBT project directory and add profiles.yml file, or add a local target to an existing profile file:
+
+jaffle_shop:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: 'jaffle_shop.duckdb'
+
+5. Build
+dbt build
+dbt run
 
 ### What is this repo?
 What this repo _is_:
@@ -79,3 +102,9 @@ For more information on dbt:
 - Read the [dbt viewpoint](https://docs.getdbt.com/docs/about/viewpoint).
 - Join the [dbt community](http://community.getdbt.com/).
 ---
+
+/Users/amlanpatnaik/.duckdb/cli/latest/duckdb
+.open jaffle_shop.duckdb
+show databases;
+select * from orders from wherr amount > 20
+.exit
